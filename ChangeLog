@@ -1,0 +1,116 @@
+-----------------------------------------------------------------------------
+ 0.12 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+ - New Curses-Interface(new bugs).
+ - pp.h splitted into multiple header-files.
+ - Fixed bugs:
+   * Memory leak in hmode().
+   * hpart(fin.c) IRCs->curchan was set to NULL even if the user left from
+     channel, other than IRCs->curchan.
+-----------------------------------------------------------------------------
+ 0.11 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+ - Better private chat support.
+ - Better help.
+ - Plugin support(UNIX)
+ - Fixed bugs:
+   * Win32-interface should build now.
+   * GTK-interface now shows empty topics.
+   * Some memory leaks.	
+----------------------------------------------------------------------------
+ 0.10 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+ - pref.c (Client settings)
+ - Replaced (win32/mdilist.c) & (chanlist.c) with llist(llist.c).
+ - Improvements in the curses-interface:
+   * mIRC-colors
+   * Cursor
+ - Popup-menu in the userlist.
+ - Fixed bugs:
+   * IRC_nick() accepted only nicknames beginning with alphabetical
+     characters.
+   * IRCs->connected was set to TRUE even if the client was unable to
+     connect to the server.
+   * getsocket() consumed all aviable CPU-time when the client was not
+     connected. (curses/main.c)
+	
+-----------------------------------------------------------------------------
+ 0.9.2 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+
+ - gtk.c should compile now.
+ - Fixed bug in CTCP_handle.
+ - GTK-interface now hilights tab-labels of channels with new messages.
+
+-----------------------------------------------------------------------------
+ 0.9 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+
+ - Primitive WIN32-support
+   * Buggy GUI + Console Client
+ - ctcp.c
+ - Updated GTK+-GUI:
+   * g++-compatibility.
+   * Shows current nickname.
+   * mIRC-colors :)
+   * View-submenu.
+ - Fixed bugs:
+   * Bug in parse.c/split caused Calloc to fail.
+   * IRC_nick should work now when not online.
+   * Userlist-modes should work little better now(still not finished).
+   * /ME should work now correctly (fout.c)
+   * hpart() should now show nicknames and reasons correctly (fin.c) 
+   * Memory leak in Client_msgf. (cursess/curses.c)
+   * Memory leak in Client_msgf/IRCO_SETTOPIC. (gtk/gtk.c)
+   * Usermode-string in userlist_add() was set to NULL. This caused
+     crashes in userlist_sortfunc(). (gtk/userlist.c)
+
+-----------------------------------------------------------------------------
+ 0.8 Ville Räisänen <spuuki@koti.mbnet.fi>
+-----------------------------------------------------------------------------
+
+ - GTK+-interface with many new bugs.
+ - Removed all global shit from the core.
+ - New commands: /SERVER /HELP
+ - New wrappers.
+ - Fixed bugs:
+   * Possible buffer overflow at hkick() 
+   * Bug in IRC_channel
+   * ...
+
+-----------------------------------------------------------------------------
+ 0.7 Ville Räisänen <raivil@geek.com>
+-----------------------------------------------------------------------------
+
+ - Added wrappers(wrap.c)
+	
+-----------------------------------------------------------------------------
+ 0.6 Ville Räisänen <raivil@geek.com>
+-----------------------------------------------------------------------------
+
+ - Commented the code.
+ - Removed some unnecessary shit.
+ - Fixed some bugs:
+   * Possible buffer overflow at hnotice().
+   * Erroneous nicknames can now be fixed by the server -- handle_numeric()
+	
+-----------------------------------------------------------------------------
+ 0.5 Ville Räisänen <raivil@geek.com>
+-----------------------------------------------------------------------------
+	
+ - Multichannel support added (chanlist.c).
+ - Replaced all malloc()'s with calloc()'s :) 
+ - Some buffer overflows fixed :O
+ - fout.c :
+   * Added /OP /DEOP /VOICE /DEVOICE /KICK.
+   * Added /CHANNEL and /CHANLIST for multichannel support.
+   * Removed IRC_join() -- multijoin & key.
+ - fin.c : 
+   * Modified hjoin(),hpart(),hkick() for multichannel support.
+   * Modified topic() to support empty topics.
+   * Removed DELD(cnt) from all non-numerical and numerical handlers.
+   * Fixed a bug in CTCP-time.
+   * Added hnick().
+ - curses.c :
+   * Two-line input-window.
+	

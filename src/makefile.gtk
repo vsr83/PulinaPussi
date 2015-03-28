@@ -1,0 +1,24 @@
+CC=gcc
+LDLIBS=`gtk-config --libs`
+CFLAGS=-Wall -g -DDEBUG `gtk-config --cflags` -DPP_USEGTK
+
+all: wrap.o common/parse.o common/llist.o common/pref.o common/socket.o plugin.o common/ctcp.o common/fin.o common/fout.o gtk/dlg.o gtk/userlist.o gtk/noteb.o gtk/gtk.o gtk/gtk
+
+wrap.o: wrap.c
+common/parse.o: common/parse.c
+common/llist.o: common/llist.c
+common/pref.o: common/pref.c
+common/socket.o : common/socket.c
+plugin.o : plugin.c
+common/ctcp.o : common/ctcp.c
+common/fin.o : common/fin.c
+common/fout.o : common/fout.c
+gtk/dlg.o: gtk/dlg.c
+gtk/userlist.o: gtk/userlist.c
+gtk/noteb.o: gtk/noteb.c
+gtk/gtk.o: gtk/gtk.c
+
+gtk/gtk: wrap.o common/parse.o common/llist.o common/pref.o common/socket.o plugin.o common/ctcp.o common/fin.o common/fout.o gtk/dlg.o gtk/userlist.o gtk/noteb.o gtk/gtk.o
+clean:
+	rm -f *.o */*.o
+	rm -f irc

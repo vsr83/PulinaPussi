@@ -1,0 +1,21 @@
+CC=gcc
+LDLIBS=-pthread -lcurses -ldl -rdynamic
+CFLAGS=-Wall -g -DDEBUG -DPP_USECURSES
+
+all: wrap.o common/parse.o common/llist.o common/pref.o common/socket.o plugin.o common/ctcp.o common/fin.o common/fout.o curses/main.o curses/input.o curses/main
+
+wrap.o: wrap.c
+common/parse.o: common/parse.c
+common/llist.o: common/llist.c
+common/pref.o: common/pref.c
+common/socket.o : common/socket.c
+plugin.o : plugin.c
+common/ctcp.o : common/ctcp.c
+common/fin.o : common/fin.c
+common/fout.o : common/fout.c
+curses/main.o : curses/main.c
+curses/input.o : curses/input.c
+curses/main: wrap.o common/parse.o common/llist.o common/pref.o common/socket.o plugin.o common/ctcp.o common/fin.o common/fout.o curses/input.o curses/main.o
+clean:
+	rm -f *.o */*.o
+	rm -f irc

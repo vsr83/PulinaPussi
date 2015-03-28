@@ -1,0 +1,9 @@
+-> 1.0 TODO:
+ - Autoconf
+ - Fix BUGS :)
+ - DCC support
+ - Command history
+ - Lastlog
+ - PERL- / Python-script support.
+ - Better WIN32-support
+   * Make GTK+-interface work under Windows.
